@@ -333,7 +333,7 @@ Compiler.prototype.semantic = function (ast, iNES) {
       var directive = leaf.children[0].value
       var argument
       if (leaf.children.length === 2) {
-        argument = getValue(leaf.children[1], labels)
+        argument = [getValue(leaf.children[1], labels)] // wrap it in an array
       } else {
         argument = leaf.children.slice(1, leaf.children.length)
       }

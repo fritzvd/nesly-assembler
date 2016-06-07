@@ -214,14 +214,14 @@ Compiler.prototype.syntax = function (tokens) {
     } else {
       for (var bnf in asm65Bnf) {
         var leaf = {}
-        var lookAhead = 0 // TODO: confusing to have a func and var named this
+        var lookingAhead = 0
         move = false
         for (var i in asm65Bnf[bnf].bnf) {
-          move = asm65Bnf[bnf].bnf[i](tokens, x + lookAhead)
+          move = asm65Bnf[bnf].bnf[i](tokens, x + lookingAhead)
           if (!move) {
             break
           }
-          lookAhead++
+          lookingAhead++
         }
         if (move) {
           if (labels.length > 0) {
@@ -229,10 +229,10 @@ Compiler.prototype.syntax = function (tokens) {
             labels = []
           }
           var size = 0
-          lookAhead = 0
+          lookingAhead = 0
           for (var b in asm65Bnf[bnf].bnf) {
-            size += asm65Bnf[bnf].bnf[b](tokens, x + lookAhead)
-            lookAhead++
+            size += asm65Bnf[bnf].bnf[b](tokens, x + lookingAhead)
+            lookingAhead++
           }
           leaf.children = tokens.slice(x, x + size)
           leaf.type = asm65Bnf[bnf].type

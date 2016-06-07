@@ -399,4 +399,4 @@ attribute:
 .dw 0
 .bank 2
 .org $0000
-.incbin "mario.chr"
+.incbin "./build/mario.chr"

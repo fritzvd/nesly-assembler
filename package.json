@@ -7,7 +7,7 @@
   "scripts": {
     "release": "standard-version",
     "test": "standard",
-    "example": "node cli example/example.s example/example.nes" 
+    "example": "node cli example/example.s example/example.nes"
   },
   "repository": {
     "type": "git",
@@ -29,6 +29,7 @@
     "standard-version": "^2.2.1"
   },
   "dependencies": {
-    "commander": "^2.9.0"
+    "commander": "^2.9.0",
+    "isarray": "^1.0.0"
   }
 }
